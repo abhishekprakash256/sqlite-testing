@@ -5,7 +5,9 @@ generate random phone number
 # importing the random module
 import random
 
-COUNT_NUMBERS = 100
+
+#the numbers of phone numbers that we want to generate 
+COUNT_NUMBERS = 500
 
 
 class Data_Generator():
@@ -31,7 +33,7 @@ class Data_Generator():
 		"""
 		The function to check the unique phone numbers
 		"""
-		count = 0 
+		count = 0
 		phone_number_lst = []
 
 		while count < COUNT_NUMBERS :
@@ -50,5 +52,3 @@ class Data_Generator():
 if __name__ == '__main__':
 	data_gen = Data_Generator()
 	data_gen.check_unique_number()
-
-	
