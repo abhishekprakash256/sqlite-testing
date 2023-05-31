@@ -1,66 +1,54 @@
 """
-the program to generate fake phone number of 10 digits staring from 8
-"""
-
-import random
-
-
-"""
 generate random phone number 
 """
 
 # importing the random module
 import random
 
+COUNT_NUMBERS = 100
 
-mapper = {}
 
-def generate_phone_number():
+class Data_Generator():
 	"""
-	The function to generate random phone number 
+	The base class to generate the data 
 	"""
 
-	#the phone number 
-	phone_number = "8"
+	def generate_phone_number(self):
+		"""
+		The function to generate random phone number 
+		"""
 
-	for i in range(0,9):
-		phone_number += str( random.randint(0,8))
+		#the phone number 
+		phone_number = "8"
 
-	return phone_number
+		for i in range(0,9):
+			phone_number += str( random.randint(0,8))
+
+		return phone_number
+
+
+	def check_unique_number(self):
+		"""
+		The function to check the unique phone numbers
+		"""
+		count = 0 
+		phone_number_lst = []
+
+		while count < COUNT_NUMBERS :
+
+			generated_phone_number = self.generate_phone_number()
+
+			if generated_phone_number not in phone_number_lst:
+				phone_number_lst.append(generated_phone_number)
+				count+=1
+
+		print(phone_number_lst)
+
 
 
 
 if __name__ == '__main__':
-	for i in range(0,10):
-		
-		generated_phone_number = generate_phone_number()
-		
-		mapper[generated_phone_number] = True
+	data_gen = Data_Generator()
+	data_gen.check_unique_number()
+
 	
-	#print(mapper)
-
-
-a = "8213136651"
-
-
-
-
-"""
-make the number 
-"""
-
-lst = []
-
-count = 0
-
-while count < 10:
-
-	num = random.randint(0,11)
-
-	if num not in lst:
-		lst.append(num)
-		count+=1
-
-
-
-print(lst)
