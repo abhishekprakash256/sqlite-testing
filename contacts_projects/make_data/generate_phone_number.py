@@ -20,7 +20,7 @@ class Data_Generator():
 		The function to generate random phone number 
 		"""
 
-		#the phone number 
+		#the phone number starts with 8
 		phone_number = "8"
 
 		for i in range(0,9):
