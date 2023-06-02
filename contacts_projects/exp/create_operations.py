@@ -30,6 +30,7 @@ def insert_data(id_value,name_value):
 	"""
 	c.execute('INSERT INTO names (id, name) VALUES (?, ?)', (id_value, name_value))
 
+	#to make the changes permanent
 	conn.commit()
 
 
@@ -38,8 +39,10 @@ def clear_table():
 	the function to clear all the data
 	"""
 	# Delete all data from specific tables
-	c.execute('DELETE FROM id')
 	c.execute('DELETE FROM names')
+
+	#to make the changes permanent
+	conn.commit()
 
 
 
@@ -55,6 +58,21 @@ def print_data():
 
 
 
+def search_data(search_name):
+	"""
+	The function to search the database
+	"""
+	c.execute('SELECT * FROM names WHERE name = ?', (search_name,))
+
+	data = c.fetchall()
+
+	if len(data) == 0:
+		print("No data found")
+		exit()
+
+	print(data)
+
+
 
 
 if __name__ == '__main__':
@@ -62,9 +80,19 @@ if __name__ == '__main__':
 		make_schema()
 	except:
 		print("table is already made")
-	#insert_data(1,"Abhi")
-	#insert_data(2,"Anny")
+	
+	#inset two data 
+	insert_data(1,"Abhi")
+	insert_data(2,"Anny")
+
+	#prin the data 
 	print_data()
+
+	#search database
+	search_data("Anny")
+
+	#clear the database
+	clear_table()
 
 
 
