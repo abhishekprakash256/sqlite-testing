@@ -74,6 +74,32 @@ def search_data(search_name):
 
 
 
+def main():
+	"""
+	The main function to start the program
+	"""
+
+	#star the loop
+
+	while True:
+
+		# take the inputs 
+		exit = input("Enter q to quit and another to continue : ")
+
+		if exit == 'q':
+			break
+
+		id_val = int(input("Enter the id value : "))
+
+		name_val = input("Enter the name value: ")
+
+		insert_data(id_val,name_val)
+
+
+
+
+	
+
 
 if __name__ == '__main__':
 	try:
@@ -81,47 +107,17 @@ if __name__ == '__main__':
 	except:
 		print("table is already made")
 	
-	#inset two data 
-	insert_data(1,"Abhi")
-	insert_data(2,"Anny")
 
-	#prin the data 
+	#main function
+	main()
+
+	#print the data 
 	print_data()
-
 	#search database
-	search_data("Anny")
+	#search_data("Anny")
 
 	#clear the database
 	clear_table()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
