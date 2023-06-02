@@ -10,6 +10,50 @@ conn = sqlite3.connect("test.db")  #to make a connection to the db
 c = conn.cursor()
 
 
+#create a database with id and name 
+
+def make_schema():
+	"""
+	The function to make the schema in the database  
+	"""
+	c.execute("""
+	CREATE TABLE names(
+		Id integer,
+		name text
+		)""")
+
+
+
+def insert_data(id_value,name_value):
+	"""
+	The function to insert data into the database
+	"""
+	c.execute('INSERT INTO names (id, name) VALUES (?, ?)', (id_value, name_value))
+
+	conn.commit()
+
+def print_data():
+	"""
+	The function to print all the data
+	"""
+	c.execute('SELECT * FROM names')
+
+	data = (c.fetchall())
+
+	print(data)
+
+if __name__ == '__main__':
+	try:
+		make_schema()
+	except:
+		print("table is already made")
+	#insert_data(1,"Abhi")
+	#insert_data(2,"Anny")
+	print_data()
+
+
+
+
 
 
 
