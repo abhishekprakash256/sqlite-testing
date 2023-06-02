@@ -32,6 +32,17 @@ def insert_data(id_value,name_value):
 
 	conn.commit()
 
+
+def clear_table():
+	"""
+	the function to clear all the data
+	"""
+	# Delete all data from specific tables
+	c.execute('DELETE FROM id')
+	c.execute('DELETE FROM names')
+
+
+
 def print_data():
 	"""
 	The function to print all the data
@@ -41,6 +52,10 @@ def print_data():
 	data = (c.fetchall())
 
 	print(data)
+
+
+
+
 
 if __name__ == '__main__':
 	try:
