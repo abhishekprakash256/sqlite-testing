@@ -1,8 +1,13 @@
 """
 make a python file to operation in the file 
 """
-
+#imports
 import sqlite3
+from make_data import *
+
+
+
+DATA_NUMBER = 40
 
 conn = sqlite3.connect("test.db")  #to make a connection to the db
 
@@ -74,7 +79,7 @@ def search_data(search_name):
 
 
 
-def main():
+def feed_data_():
 	"""
 	The main function to start the program
 	"""
@@ -97,8 +102,22 @@ def main():
 
 
 
+def main():
+	"""
+	The main function to insert the data into the sql database
+	"""
 
+	count = 0
 	
+	while count < DATA_NUMBER:
+
+		#insert the data
+		insert_data(data_lst[count][0],data_lst[count][1])
+
+		count+=1
+
+
+
 
 
 if __name__ == '__main__':
@@ -107,6 +126,9 @@ if __name__ == '__main__':
 	except:
 		print("table is already made")
 	
+
+	#make the data 
+	make_test_data(DATA_NUMBER)
 
 	#main function
 	main()
@@ -118,48 +140,3 @@ if __name__ == '__main__':
 
 	#clear the database
 	clear_table()
-
-
-
-
-
-
-
-'''
-def create_customer(customer):
-    with connection:
-        cursor.execute("INSERT INTO customer VALUES (:first, :last, :age, :city, :country)", 
-        {'first':customer.first_name, 'last':customer.last_name,
-         'age':customer.age, 'city':customer.city, 'country':customer.country})
-    
-
-def get_customers(city):
-    cursor.execute("SELECT * FROM customer WHERE city=:city", {'city':city})
-    return cursor.fetchall()
-
-def update_city(customer, city):
-    with connection:
-        cursor.execute("""UPDATE customer SET city=:city 
-        WHERE first_name=:first AND last_name=:last""",
-        {'first':customer.first_name, 'last':customer.last_name, 'city':city})
-
-def delete_customer(customer):
-    with connection:
-        cursor.execute("DELETE FROM customer WHERE first_name=:first AND last_name=:last",
-        {'first':customer.first_name,'last':customer.last_name})
-
-customer_1 = Customer('john', 'doe', 30, 'perth', 'Australia')
-customer_2 = Customer('sara', 'migel', 25, 'perth', 'Australia')
-
-create_customer(customer_1)
-create_customer(customer_2)
-
-update_city(customer_1,'sydney')
-
-delete_customer(customer_2)
-
-print(get_customers('perth'))
-print(get_customers('sydney'))
-
-connection.close()
-'''
