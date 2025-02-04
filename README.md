@@ -1,6 +1,3 @@
-Here’s an enhanced version of your README with additional details, better formatting, and expanded explanations:
-
----
 
 # SQLite Database Learning and Experimentation with Python
 
@@ -99,6 +96,3 @@ Feel free to fork the repository and submit pull requests with any improvements,
 
 This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
----
-
-This updated version provides more clarity on installation, usage, and common database operations, improving the readability and structure of your README. Let me know if you need any more changes or additions!
